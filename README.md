@@ -77,9 +77,11 @@ sudo fuser XXXX/tcp -k           // to kill the XXXX process and make that port 
 * run ``` npm install```then run ``` nodejs Server.js``` on your terminal.
 * you will see a message on your terminal console `We have started our server on port XXXX` which shows that the application has started running on port **XXXX**.
 * Now visit `localhost:XXXX` in your browser.
+
 **Use the application and experience the difference in searching.**
 ***
-### Developing Team ####
+
+### Developing Team ###
 * Aman Rai - Team Co-ordinator
 * Ayushi Goyal - Tech Expert
 * Prachi Agrawal - Technical Expert
