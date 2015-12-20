@@ -1,0 +1,114 @@
+		a{
+			text-decoration: none;
+		}
+		.search_bar{
+			font-family: sans-serif;
+		/* 	position: fixed;  */
+
+			top: 300px;
+			left: 200px;
+			margin: 250px;
+			float: left;
+			clear: left;
+			color: black;
+			/*float:left;*/
+		}
+		.typeahead, .tt-query, .tt-hint {
+			border: 2px solid #CCCCCC;
+			border-radius: 8px;
+			font-size: 24px;
+			height: 50px;
+			line-height: 40px;
+			outline: medium none;
+			padding: 8px 12px;
+			width: 930px;
+		}
+		.typeahead {
+			background-color: #FFFFFF;
+		}
+		.typeahead:focus {
+			border: 2px solid #0097CF;
+		}
+		.tt-query {
+			box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+		}
+		.tt-hint {
+			color: #999999;
+		}
+		.tt-dropdown-menu {
+			background-color: #FFFFFF;  
+			border: 1px solid rgba(0, 0, 0, 0.2);
+			border-radius: 8px;
+			box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+			margin-top: 12px;
+			padding: 8px 0;
+			width: 700px;
+		}
+		.tt-suggestion {
+			font-size: 24px;
+			line-height: 14px;
+			padding: 3px 20px;
+		}
+		.tt-suggestion.tt-is-under-cursor {
+			background-color: #0097CF;
+			color: #FFFFFF;
+		}
+		.tt-suggestion p {
+			margin: 0;
+		}
+		.tt-submit {
+			height: 57px;
+			width: 78px;
+			float: left;
+			/*position: absolute;*/
+
+		}
+
+		#imagew {
+
+	   	position: absolute; 
+   		left: 46%;
+   		top: 30%; 
+  		margin-left: -200px;
+   		margin-top: -150px;
+
+		} 
+
+		#i1 { left: 20%; position: relative; }
+		#i2 { left: 35%; position: relative; }
+		#i3 { left: 55%; position: relative; }
+	
+		
+
+		#URL{
+			top: 100px;
+			margin-top:20px; 
+			margin-left:20px; 
+			font-size:20px;
+			float: left;
+			color: black;
+
+		/*	 overflow-y: scroll;	*/
+
+		}
+		#Counts{
+			height: 50px ;
+			width: 300px ;
+			font-size: 20px;
+			color:black;
+			
+		}
+
+}
+		body{
+			background-color: white;
+			/*background-image: url('images/1.jpeg');*/
+
+		}
+
+		
+	
+a{
+	text-decoration: none;
+}
+		
