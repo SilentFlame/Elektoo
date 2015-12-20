@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Elektoo</title>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script  type="text/javascript" src="typeahead.min.js"></script>
+	<style type="text/css">
+		#table-id{
+				width: 60%;
+				font-size: 150%;
+				border-collapse: collapse;				
+				text-align: center;
+				border-radius: 15px;
+		}
+		a{
+			text-decoration:none;
+		}
+		h3{
+			text-align: center;
+		}
+		h3 span{
+			background-color: #ccddff;
+		}
+		#row-id{
+			font-size: 150%;
+		/*	border-width: 50px;  */
+			text-align: center;
+			font-family: Georgia, Garamond, serif;
+			border-collapse: separate;  
+			border-radius: 15px;
+		/*	border-color: purple;  */
+			border:5px solid purple;
+		/*	bgcolor: white;  */
+			background-color: #80bfff;
+			padding: 1px;
+		}
+		body {
+  			background-image: url('http://orig14.deviantart.net/a5e5/f/2008/313/d/a/adidas_blue_wallpaper_by_javiglez.png');
+    		background-repeat: no-repeat;
+    		background-attachment: fixed;
+    	    background-size: 1900px 1400px;
+		} 
+		table {
+		    width: 50%;
+		    margin-left: auto;
+		    margin-right: auto;
+			position: absolute;
+			top: 36%;
+
+			left: 16%;
+		}			
+	</style>		
+</head>
+<body>
+<div id="tabs"></div>
+<script type="text/javascript">
+	function showIt(data){
+		document.getElementById('tabs').innerHTML = data;
+	}	
+
+	var myString = "<table id='table-id'><tr><td id='row-id'><a href='http://localhost:3000/query'><h3><span>Search Query box</span><h3></a></td>";
+	myString = myString + "<td id='row-id'><a href='http://localhost:3000/brands'><h3><span>Choice Matrix</span></h3></a></td></tr></table>";
+	showIt(myString);
+</script>
+</body>
+</html>
