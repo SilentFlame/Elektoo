@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Elektoo</title>
+  <link href="brand_page/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="brand_page/stylesheets/font-awesome.min.css" rel="stylesheet">
+  
+  <!-- Montserrat Sans -->
+  <link href='brand_page/stylesheets/family.css' rel='stylesheet' type='text/css'>        
+  
+</head>
+
+<body>
+  <div id="demo-bar"></div>
+  <div class="container">
+    <a class="menu-button" href="#"><i class="fa fa-bars"></i>Menu</a> 
+ <!--   <a href="http://webdesigncrowd.com" class="btn"><span class="title">WebDesignCrowd</span></a>-->
+    <a href="http://localhost:3000/" class="btn"><span class="title">Home</span></a>
+   <!-- <h1>Choice Matrix</h1>-->
+   <br>
+   <br>
+   <br>
+   <br>
+
+  <!--  <a href="#" class="btn btn-small active">Horizontal</a>
+    <a href="brand_page/bounce.html" class="btn btn-small">Horizontal Bounce</a>
+    <a href="brand_page/vertical.html" class="btn btn-small">Vertical</a>
+    <a href="brand_page/vertical-bounce.html" class="btn btn-small">Vertical Bounce</a>
+    <br><br><br><br>  -->
+
+    <div class="menu">
+      <div class="left-menu">
+      <a class="menu-button" href="#"><i class="fa fa-times"></i>Close Menu</a> 
+        <ul id = 'branddisplay'>
+        <!--  <li><a href="">Important Link 1</a></li>
+          <li><a href="">Important Link 2</a></li>
+          <li><a href="">Other Link</a></li>
+          <li><a href="">Social Media Link</a></li>-->
+        </ul>
+        <div class="circle"><a href="http://localhost:3000/brands"><img src="images/logo.gif"></a></div>
+      </div>
+
+      <div class="right-preview">
+        <a href="http://localhost:3000/query"><img src="brand_page/images/search_image.jpg"></a>
+        <a href="http://localhost:3000/"><img src="brand_page/images/cabin.png"></a>
+      <!--  <a href=""><img src="brand_page/images/icon-pencil.png"></a>-->
+      </div>
+    </div>
+
+    <div class="content">
+      <div id="intro">
+      <div> <img src="brand_page/images/matrix_image.jpg"></a></div>
+   <!--   <center>Choice Matrix Picture</center>
+        <center>Choice Matrix description</center> -->
+      </div>
+      
+    </div>
+    <div class="clearfix"></div>
+  </div>
+
+
+  <!-- Javascript -->
+  <script src="JS/jquery.min.js"></script>
+  <script src="brand_page/js/init.js"></script>
+  <script> 
+    $(function(){
+      $("#demo-bar").load("../demo-bar.html"); 
+    });
+  </script> 
+
+  <script type="text/javascript">
+
+	function showIt(data){
+		document.getElementById('branddisplay').innerHTML = data;
+	}  
+
+	 var data = <%- JSON.stringify(CompanyData) %>
+
+	 console.log("data");
+	 console.log(data)
+	 var myString = "";
+	// var myString = "<table id='table-id'><tr><th>Brands Available</tr></th>";
+	for (var i = 0; i < data.length; i++) {
+			var company = data[i].company;
+
+			
+		var temp = "<li><a href=http://localhost:3000/matrix?brand="+company+">" +company+"</a></li>";
+		//	var temp="<tr><td id='row-id'><a href=http://localhost:3000/matrix?brand="+company+">"+company+"</a></td></tr>";
+			myString= myString + temp;
+	};
+	console.log(myString); 
+/*	myString=myString+"</table>"  
+	myString=  "<li><a href='#'>Important Link 1</a></li>"; */
+	showIt(myString);		
+</script>
+
+</body>
+</html>

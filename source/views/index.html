@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="Elektoo" content="">
+
+	<title>Elektoo</title>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script  type="text/javascript" src="http://localhost:3000/JS/typeahead.min.js"></script>
+	<script type="text/javascript" src="http://localhost:3000/JS/index.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="http://localhost:3000/stylesheets/index.css">
+
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link href="Bootstrap_elektoo/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="Bootstrap_elektoo/css/freelancer.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="Bootstrap_elektoo/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="Bootstrap_elektoo/css/family.css" rel="stylesheet" type="text/css">
+    <link href="Bootstrap_elektoo/css/family1.css" rel="stylesheet" type="text/css">
+
+
+
+</head>
+	<body>
+
+
+
+	<nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://localhost:3000/">Elektoo</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="http://localhost:3000/">Home</a>
+                    </li>
+                  <!--  <li class="page-scroll">
+                        <a href="#about">About</a>
+                    </li>-->
+                 <!--   <li class="page-scroll">
+                        <a href="#contact">Contact</a>
+                    </li>-->
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+	<!--	<div class="page-header">
+			<img class="search" src="http://localhost:3000/images/logo.gif" />
+		</div>-->
+		<div class="search_bar">
+			<table>
+				<tr>
+
+					<td><input id="myInput" type="text" name="typeahead" class="typeahead tt-query" autocomplete="off" spellcheck="false" placeholder="Type your Query" onkeypress="if(event.charCode == 32 || event.keyCode == 32)getData()"></td>
+					<td><input id="button" placeholder="Submit" name="submit" class="tt-submit" type="image" src="http://127.0.0.1:3000/images/images.jpeg" onclick="getData()"></td>
+					<td id="Counts">Results Found: </td>
+				</tr>
+			</table>
+			<br>
+
+	<!--	<div class='products'>
+			<p id='Counts'></p>
+		</div>-->
+			<br>
+			<br>
+			<br>
+
+			<div id='URL'>
+			</div>
+
+		</div>
+	
+
+			
+		<div id="imagew" > 	
+			<img id="i1" src= "http://localhost:3000/images/i1.gif"/> 
+			<img id="i2" src= "http://localhost:3000/images/i2.gif"/> 
+			<img id="i3" src= "http://localhost:3000/images/i3.gif"/> 
+		</div>
+
+
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll visible-xs visible-sm">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+		</body>
+		</html>
