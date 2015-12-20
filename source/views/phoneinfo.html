@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Elektoo</title>
+
+
+</head>
+	<body>
+
+	<div class="top"><nav><ul>
+
+		<li id="op1" ><a  id ='idd1' href='http://localhost:3000'>Elektoo</a></li>
+		<li id="op2" ><a  id ='idd2' href='http://localhost:3000'>Home</a></li>
+	</ul></nav>
+	</div>
+	<div id='phonedisplay'>
+	Phone info goes here
+	</div>
+
+	<script type="text/javascript">
+
+		function showIt(data){
+			console.log(data);
+			document.getElementById('phonedisplay').innerHTML = data;
+
+		} 
+			 var data = <%- JSON.stringify(StudentsDataOut) %>
+
+			 console.log(data)
+
+			 var myString = "";
+			 for (var i = 0; i < data.length; i++) {
+					var company = data[i].company;
+					var phoneid = data[i].phoneid;
+					var model = data[i].model;
+					var screen_size = data[i].screen_size;
+					var price = data[i].price;
+					var color = data[i].color;
+					var temp = "<div id=col1> <img src=http://localhost:3000/images/"+phoneid+".jpeg" + " "+ "align=left" + " " +	  "alt=No" +
+								"image available></div><div id=col2><p></p></div><div id=col3 ><table class=tab" + ">"+
+								"<tr><th class=heading1>Phone Details:</th></tr>"+
+								"<tr><td><b>Company: "+ company + "</b></td></tr>"+
+								"<tr><td><b>Model: "+ model + "</b></td></tr>"+
+								"<tr><td><b>Screen size: "+ screen_size + "</b></td></tr>"+
+								"<tr><td><b>Price: "+ price + " INR</b></td></tr>"+
+								"<tr><td><b>Color: "+ color + "</b></td></tr>"+"</table></div>"+ " "
+
+
+								;
+						myString= myString + temp;
+					};
+					showIt(myString);
+
+		
+		</script>
+		<style type="text/css">	
+		a{
+			text-decoration:none;
+		}
+
+		li {
+			display: inline-block;
+			color: red;
+			padding: 5px;
+		}
+
+		#idd1{
+
+			color: white;
+		}
+		#idd2{
+
+			color: white;
+		}
+
+
+
+		#op2{
+
+			top: 12px;
+			left: 1000px;
+			position: relative;
+			width: 100px;
+    height: 30px;
+    font-size: 19px;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 3px 2px 3px #333333;
+color: white;
+        border-radius: 8px;
+		
+		}
+
+				#op1{
+
+			top: 12px;
+			left: 20px;
+			position: relative;
+			width: 100px;
+    height: 30px;
+    font-size: 33px;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 3px 2px 3px #333333;
+color: white;
+        border-radius: 8px;
+		} 
+
+		
+		th {
+			text-decoration: underline;
+		}
+
+		td {
+			text-align: center;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		.heading1{
+			text-decoration: underline;
+		}
+
+		.top{
+			height: 70px;
+			background-color: #2C3E50;
+		}
+
+
+
+		#phonedisplay { 
+ 		   width: 800px;
+    		margin: 0 auto;
+		}
+
+		#col1    {
+
+			display: inline-block;
+    		margin-left: auto;
+    		margin-right: auto;  
+    		vertical-align: middle;
+    		width: 350px;
+    		height: 500px;
+    		background: white; 
+    		float: left;
+    		text-align: center;
+    		box-shadow: 0px 8px 10px gray, 
+       			 -7px 8px 10px gray, 7px 8px 10px gray;
+		}
+
+		div img{
+			position: relative;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		#col2    {
+    		width: 50px;
+    		height: 500px;
+    		background: #18bc9c ; 
+    		float: left;
+    	/*	box-shadow: 0px 8px 10px gray, 
+       			 -4px 8px 10px gray, 4px 8px 10px gray;  */
+    
+		}
+
+
+		#col3  {
+			text-align: center;
+
+			margin-left: 100px;
+    		width: 500px;
+    		background: #ffffff;
+    		height: 500px;
+    		margin-left: 200px;
+    		box-shadow: 0px 8px 10px gray, 
+       			 -7px 8px 10px gray, 7px 8px 10px gray;
+   
+    		  
+		}
+
+		body {
+			background-color: #18bc9c;
+		}
+		</style>
+	</body>
+</html>

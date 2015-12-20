@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Elektoo</title>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script  type="text/javascript" src="typeahead.min.js"></script>
+		<style type="text/css">
+
+		input[type=radio]{
+		width: 100%;
+    	height: 4em;
+		}
+		#table-id{
+			-webkit-border-radius: 8%;
+		    -moz-border-radius: 8%;
+		    overflow:hidden;
+		    border-radius: 10%;  
+		    box-shadow: #666 0px 2px 3px;
+		    width: 60%;
+			height: 60%;    			
+    		border-collapse: collapse;
+    		text-align: center;
+    		font-size: 130%;
+		}
+		#row-id{
+			height:70%;
+		}
+		#box-id{
+			height: 60%; 
+		    box-shadow: #666 0px 2px 3px;				
+			text-align: center;
+		}
+		#MatrixSpec{
+			font-size: 120%;
+			height: 60%;
+			font-weight: bold;
+			text-align: center;
+		}
+		body{
+			background-color: #18bc9c;
+		}
+
+		table {
+		    width: 50%;
+		    margin-left: auto;
+		    margin-right: auto;
+		    height: 60%;
+		}
+
+		a{
+			text-decoration: none;
+		}
+		</style>
+</head>
+
+<body>
+	<div id="MatrixSpec"></div>
+	<div id="displaymatrix"></div>
+
+<script type="text/javascript">
+function GetHeaders(obj) {
+        var cols = new Array();
+        var p = obj[0];
+        for (var key in p) {
+            cols.push(key);
+        }
+        return cols;
+    }
+    var data = <%- JSON.stringify(MatrixData) %>
+	 console.log(data);
+	 var cols=GetHeaders(data);
+
+	var  atttr=new Array(cols.length);
+	var vals=new Array(cols.length);
+	var index=0;
+	function hello(el,em){
+		for(var j=3; j<cols.length;j++)
+		{
+			if(el==cols[j])
+			{
+				atttr[j]=el;
+				vals[j]=em;
+				break;
+			}
+		}
+			console.log(el);
+			console.log(em);
+			console.log(vals[3],vals[4],vals[5],vals[6]);
+	}
+
+	function showIt(data){
+			document.getElementById("displaymatrix").innerHTML = data;
+	}
+
+	function goBack() {
+	    window.history.back();
+	}
+
+	function CompanyName(input){
+			document.getElementById("MatrixSpec").innerHTML = input;
+	}
+
+	function check(ele) {
+		console.log("hello");
+		console.log(ele.name);
+		var pos=atttr.indexOf(ele.name);
+		delete atttr[pos];
+		delete vals[pos];
+		var elements=document.getElementsByName(ele.name);
+		var i;
+		for(i=0;i<elements.length;i++){
+			if(elements[i].type=='radio'){
+				elements[i].checked=false;
+			}
+		}
+	}
+	function search(){;
+		var url="company='"+CompName[1]+"'";
+		for(var i=0;i<atttr.length;i++)
+		{
+			if(atttr[i]!=undefined && atttr[i]!="price")
+				url=url+"&"+atttr[i]+"='"+vals[i]+"'";
+			else if(atttr[i]=="price")
+				url=url+"&"+atttr[i]+"<="+vals[i];
+
+		}
+		
+		$.ajax({                           // ajax call to send the value of input server-side.
+		     	url:'http://localhost:3000/result',
+		     	type:'GET',
+		     	datatype:'json',
+		     	crossDomain : true,
+		     	data:{"name":url},
+		     	contentType:'application/json',
+		     	success:function(data){
+		     		var query = data;
+					console.log(data);
+				   	$.ajax({
+						url: 'http://localhost:3000/respo',
+						type:'GET',
+					    datatype:'json',
+					    crossDomain : true,
+					    data:{"name":query},
+					    contentType:'application/json',
+						success : function(data){
+							var myString = "";
+							for (var i = 0; i < data.length; i++) {
+								var phoneid = data[i].phoneid;
+								var company = data[i].company;
+								var model = data[i].model;
+								console.log("Everrything Works");
+								var temp = "<a href = http://localhost:3000/phoneinfo?pid="+ phoneid + '>' +company +'&nbsp&nbsp&nbsp' + model + '&nbsp&nbsp&nbsp' +"</a></br></br>";
+								var COUNT="Results Found: " + data.length+"</br>";
+								myString= myString + temp;
+							};
+
+							if(data.length==0)
+								var COUNT ="Results Found: " + 0;
+							console.log(myString);	
+							showItcon(myString,COUNT);
+						}
+					});
+				     	}
+				     });
+	}
+	function showItcon(data,COUNT){
+		 	document.getElementById('URL').innerHTML = data;
+		 	document.getElementById('Counts').innerHTML = COUNT;
+		 }
+			var url = window.location.href;
+			var CompName = url.split("=");
+			var str2 = "<h1>Choice Matrix for " + CompName[1] + "</h1>";
+			CompanyName(str2);
+			 
+			 var lowp=data[0].price;
+			 var highp=data[data.length-1].price;
+			 var range=(highp-lowp)/5;
+
+			 for(var i=0;i<cols.length;i++)
+			 {
+				console.log(cols[i]);
+			 }
+
+			 var myString="<br><br><br>";
+			 myString = myString+"<table id='table-id'><tr id='row-id'><th id='box-id'>price</th>";
+
+			 for(var i=1;i<=5;i++){
+			 		var low=lowp;
+			 		var high=lowp+(i*range);
+
+			 		var temp="<td id='box-id'><input type='radio' name='price' value='"+high+" 'onclick='hello(this.name, this.value);'>&lt"+high+"</td>";
+
+					myString= myString + temp;
+				};
+				myString=myString+"<td><button  name='price' onclick='check(this);'>uncheck options</button></td></tr>";
+
+			for(var j=3;j<cols.length;j++)
+			{
+				var values=new Array();
+				var temp=new Array();
+				for(var i=0;i<data.length;i++)
+				{
+					temp.push(data[i][cols[j]]);
+				}
+				temp.sort();
+				temp.sort(function(a,b){return a-b;});
+
+				//temp.sort();
+
+				console.log(temp);
+				for(var i=0,k=0;i<temp.length;i++)
+				{
+					if(i==0 || temp[i]!=temp[i-1])
+					{
+						values[k]=temp[i];
+						k++;
+					}
+				}
+				console.log(values);
+
+
+
+	 	if(cols[j]!='price')
+	 	{
+		 myString = myString+"<tr id='row-id'><th id='box-id'>"+cols[j]+"</th>";
+		 for(var i=0;i<5;i++){
+
+		 	var val;
+		 	if(i<values.length)
+		 		val=values[i];
+		 	else
+		 		val=values[values.length-1];
+	 		var temp="<td id='box-id'><input type='radio' name='"+cols[j]+"' value='"+val+"'onclick='hello(this.name, this.value)'>"+val+"</td>";
+			myString= myString + temp;
+		};
+			myString=myString+"<td><button  name='"+cols[j]+"' onclick='check(this);'>uncheck options</button></td></tr>";
+		}		
+
+	};
+	
+	myString=myString+"</table>";
+	showIt(myString);
+	
+</script>
+	
+<br><br>
+	<button name="back" onclick="goBack();">Back </button>
+	<button name="search" onclick="search();">search</button>
+	<div class='products'>
+			<p id='Counts'></p>
+		</div>
+			<br>
+			<br>
+			<br>
+			<div id='URL'>
+			</div>
+
+		</div>
+</body>
+</html>
