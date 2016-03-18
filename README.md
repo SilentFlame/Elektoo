@@ -32,7 +32,7 @@ The final display of the results will be similar to the "Search Query Box".
 On selection of the product it will display all the features and specifications for that product.
 ***
 ### Things to do before running the application. ###
-#### install  ``` Express.js, Sequelize.js, Node.js, mysql, bodyparser``` 
+#### install  Express.js, Sequelize.js, Node.js, mysql, bodyparser 
 #### Node.js #####
 ```
 sudo apt-get update
