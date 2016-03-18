@@ -1,4 +1,3 @@
-***
 # Elektoo #
 
 ### World's first choice engine. ###
